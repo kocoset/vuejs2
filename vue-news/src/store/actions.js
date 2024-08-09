@@ -1,4 +1,5 @@
-import { fetchNewsList, fetchJobsList, fetchAskList, fetchUserInfo, } from '../api/index.js';
+/* eslint-disable no-console */
+import { fetchNewsList, fetchJobsList, fetchAskList, fetchUserInfo, fetchItems } from '../api/index.js';
 
 export default {
     FETCH_NEWS(context) {
@@ -33,14 +34,14 @@ export default {
                 console.log(error);
             })
     },
-    // FETCH_ITEM({ commit }, itemId) {
-    //     fetchItems(itemId)
-    //         .then(({ data }) => {
-    //             console.log(data);
-    //             commit('SET_ITEM', data);
-    //         })
-    //         .catch(error => {
-    //             console.log(error);
-    //         })
-    // }
+    FETCH_ITEM({ commit }, itemId) {
+        fetchItems(itemId)
+            .then(({ data }) => {
+                console.log(data);
+                commit('SET_ITEM', data);
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
 }

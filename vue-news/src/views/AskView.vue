@@ -1,7 +1,7 @@
 <template>
   <div>
     <p v-for="item in fetchedAsk">
-      <router-link v-bind:to="item.url">
+      <router-link v-bind:to="`item/${item.id}`">
         {{ item.title }}
       </router-link>
       <small>
